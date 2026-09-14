@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <h2>إدارة العملاء</h2>
+  
+  <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
+  
+  <div class="mb-3">
+    <button class="btn btn-primary" routerLink="/customers/new">
+      عميل جديد
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="spinner-border" role="status">
+    <span class="visually-hidden">جاري التحميل...</span>
+  </div>
+
+  <table class="table table-striped" *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>الكود</th>
+        <th>الاسم</th>
+        <th>الهاتف</th>
+        <th>البريد الإلكتروني</th>
+        <th>الرصيد</th>
+        <th>الإجراءات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.code }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.balance | currency }}</td>
+        <td>
+          <button class="btn btn-sm btn-info" [routerLink]="['/customers', customer.id]">
+            تعديل
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="deleteCustomer(customer.id)">
+            حذف
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

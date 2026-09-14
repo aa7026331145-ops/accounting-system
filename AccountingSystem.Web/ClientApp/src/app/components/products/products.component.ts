@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../services/product.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -25,7 +25,7 @@ export class ProductsComponent implements OnInit {
         this.loading = false;
       },
       error: (err) => {
-        this.error = 'حدث خطأ في تحميل المنتجات';
+        this.error = 'خطأ في تحميل المنتجات';
         this.loading = false;
         console.error(err);
       }
@@ -39,7 +39,7 @@ export class ProductsComponent implements OnInit {
           this.loadProducts();
         },
         error: (err) => {
-          this.error = 'حدث خطأ في حذف المنتج';
+          this.error = 'خطأ في حذف المنتج';
           console.error(err);
         }
       });

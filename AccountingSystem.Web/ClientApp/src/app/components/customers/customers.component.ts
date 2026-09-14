@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from '../services/customer.service';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-customers',
@@ -25,7 +25,7 @@ export class CustomersComponent implements OnInit {
         this.loading = false;
       },
       error: (err) => {
-        this.error = 'حدث خطأ في تحميل العملاء';
+        this.error = 'خطأ في تحميل العملاء';
         this.loading = false;
         console.error(err);
       }
@@ -39,7 +39,7 @@ export class CustomersComponent implements OnInit {
           this.loadCustomers();
         },
         error: (err) => {
-          this.error = 'حدث خطأ في حذف العميل';
+          this.error = 'خطأ في حذف العميل';
           console.error(err);
         }
       });

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InvoiceService } from '../services/invoice.service';
+import { InvoiceService } from '../../services/invoice.service';
 
 @Component({
   selector: 'app-invoices',
@@ -25,7 +25,7 @@ export class InvoicesComponent implements OnInit {
         this.loading = false;
       },
       error: (err) => {
-        this.error = 'حدث خطأ في تحميل الفواتير';
+        this.error = 'خطأ في تحميل الفواتير';
         this.loading = false;
         console.error(err);
       }
@@ -39,7 +39,7 @@ export class InvoicesComponent implements OnInit {
           this.loadInvoices();
         },
         error: (err) => {
-          this.error = 'حدث خطأ في حذف الفاتورة';
+          this.error = 'خطأ في حذف الفاتورة';
           console.error(err);
         }
       });
@@ -52,7 +52,7 @@ export class InvoicesComponent implements OnInit {
         this.loadInvoices();
       },
       error: (err) => {
-        this.error = 'حدث خطأ في تأكيد الفاتورة';
+        this.error = 'خطأ في تأكيد الفاتورة';
         console.error(err);
       }
     });
